@@ -4,6 +4,7 @@ import {random, hexToRgb, distance} from './utils';
 import {Form, ColorInput, Button} from './components/Form';
 import {Title, Paragraph} from './components/Typography';
 import Color from './components/Color';
+import Score from './components/Score';
 import './App.css';
 
 const guessingColor = random();
@@ -25,7 +26,6 @@ function App() {
   return (
     <div className="App">
       <Title tag="h1">Color Match!</Title>
-      <Paragraph>In this game, try to find the RGB code of the presented color!</Paragraph>
       <Form className="form-container" onSubmit={handleSubmit(_handleSubmit)}>
         <div className="colors-container">
           <Color color={guessingColor} isRGB className="box guessing-color-box" />
@@ -33,9 +33,10 @@ function App() {
             <ColorInput ref={register(colorValidation)} className="hidden" name="userColor" id="color" onChange={handleOnChange} />
           </Color>
         </div>
-        <Button className="button" type="submit">Submit</Button>
+        <Paragraph>Try to match the colors as fast and accurate as you can!</Paragraph>
+        <Button className="button" type="submit">That's the color!</Button>
       </Form>
-      {score && <Paragraph className="score">{`Score: ${score}`}</Paragraph>}
+      <Score className="score" value={score} />
     </div>
   );
 }

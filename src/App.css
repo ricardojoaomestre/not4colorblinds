@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   justify-content: flex-start;
   font-size: 1.5rem;  
+  font-weight: 400;
   height: 100vh;
+  padding: 3rem;
+  
 }
 
 .box {
@@ -20,8 +24,14 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   box-sizing: border-box;
   appearance: none;
+}
+
+.box:focus-within {
+  outline: -webkit-focus-ring-color auto 5px
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -46,6 +56,7 @@ input[type="color"]::-webkit-color-swatch {
 .colors-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
 }
 
@@ -67,4 +78,19 @@ input[type="color"]::-webkit-color-swatch {
 
 .score {
   font-size: 5rem;
+  font-weight: 800;
+}
+
+.score-value {
+  display: block;
+}
+
+.score-value.green {
+  color: #2BDA56;
+}
+.score-value.yellow {
+  color: #E6B175;
+}
+.score-value.red {
+  color: #E16666;
 }
